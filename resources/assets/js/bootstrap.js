@@ -14,15 +14,13 @@ window.$ = window.jQuery = require('jquery');
  * using reactive data binding and reusable components. Vue's API is clean
  * and simple, leaving you to focus on building your next great project.
  */
-/*
-window.Vue = require('vue');
-*/
+
 window.axios = require('axios');
 /*
 require('vue-resource');
 */
 
-window.axios.deaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /**
  * We'll register a HTTP interceptor to attach the "CSRF" header to each of
  * the outgoing requests issued by this application. The CSRF middleware
@@ -38,7 +36,7 @@ let token = document.head.querySelector('meta[name="csrf-token"]');
 
 if(token)
 {
-	window.axios.deaults.headers.common['X-CSRF-TOKEN'] = token.content;
+	window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
 }else{
 	console.error('csrf token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
 }
